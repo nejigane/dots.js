@@ -1,9 +1,7 @@
 (function(window, document, parseInt) {
   var DOTS = {};
 
-;var DOTS = {};
-
-DOTS.Layer = function(gl, width, height) {
+;DOTS.Layer = function(gl, width, height) {
   this.gl = gl;
 
   var vertexShader = this.createShader(gl.VERTEX_SHADER,
@@ -44,10 +42,6 @@ DOTS.Layer = function(gl, width, height) {
   this.size = { width: width, height: height };
   this.texture = gl.createTexture();
   this.data = new Uint8Array(4 * width * height);
-  for (var i = 0; i < this.data.length; i += 4) {
-    this.data[i + i % 3] = 255;
-    this.data[i + 3] = 255;    
-  }
 };
 
 DOTS.Layer.prototype = {

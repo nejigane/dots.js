@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dots.js</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Monospace;
+        font-size: 13px;
+      }
+    </style>
+    <script src="../dist/dots.js"></script>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+    var canvas = new DOTS.Canvas(20, 20);
+    document.body.appendChild(canvas.domElement);
+    var layer = canvas.createLayer();
+    for (var i = 0; i < layer.data.length; i += 4) {
+        layer.data[i + i % 3] = 255;
+        layer.data[i + 3] = 255;
+    }
+    canvas.setScale(10);
+    canvas.render();
+  </script>
+</html>
